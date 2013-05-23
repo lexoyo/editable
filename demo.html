@@ -18,15 +18,12 @@
     position: absolute;
   }
   .controlbar{
-    position: absolute;
     z-index: 99999999;
   }
   .stage{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 800px;
+    border-style: inset;
   }
   /*
   .editable-element.ui-selecting { 
@@ -51,33 +48,42 @@
   <script type="text/javascript">
     $(function() {
         $(".edit-in-place").click(function(){
-            $(".stage").editable({
+            $(".editable-element").editable({
                 mode: "in-place"
             })
         });
         $(".edit-dom").click(function(){
-            $(".stage").editable({
+            $(".editable-element").editable({
                 mode: "dom"
             })
         });
         $(".edit-on").click(function(){
-            $(".stage").editable("enable")
+            $(".editable-element").editable("enable")
         });
         $(".edit-off").click(function(){
-            $(".stage").editable("disable")
+            $(".editable-element").editable("disable")
         });
         
-        $(".stage").editable();
+        $(".editable-element").editable();
+        $(".editable-container").editable({
+          isContainer: true,
+        });
     })
   </script>
 
  </head>
 <body>
     <div class="controlbar">
-      <button class="edit-in-place">In-place</button>
-      <button class="edit-dom">Dom</button>
-      <button class="edit-on">On</button>
-      <button class="edit-off">Off</button>
+      <div>
+        <h1>Edition mode</h1>
+        <button class="edit-in-place">In-place</button>
+        <button class="edit-dom">Dom</button>
+      </div>
+      <div>
+        <h1>Turn plugin on/off</h1>
+        <button class="edit-on">On</button>
+        <button class="edit-off">Off</button>
+      </div>
     </div>
     
     <a href="https://github.com/silexlabs/editable"><img style="position: absolute; z-index:999999; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
@@ -85,8 +91,8 @@
 <div class="stage">
 
     <div 
-      class="editable-element editable-style"
-      style="background-color: #000066; left: 544px; top: 47px; position: absolute; width: 362px; height: 320px;"
+      class="editable-element editable-container editable-style"
+      style="background-color: #000066; left: 544px; top: 347px; position: absolute; width: 362px; height: 320px;"
       >
           <div 
             class="editable-element editable-style"
@@ -95,8 +101,8 @@
     </div>
 
     <div 
-      class="editable-element editable-style"
-      style="background-color: #000000; left: 136px; top: 75px; position: absolute; width: 321px; height: 390px;"
+      class="editable-element editable-container editable-style"
+      style="background-color: #000000; left: 136px; top: 375px; position: absolute; width: 321px; height: 390px;"
       >
 
           <div 
